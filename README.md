@@ -57,9 +57,17 @@ Keep committed puzzle walkthroughs in `walkthroughs/lv-XXX.md` so repository rea
 
 When credentials change, update the hashes in `level.json`. Do not put plain final credential pairs in manifests or live prompts.
 
-## Production Build
+## Production releases
 
-The app can run as a standard Next.js server or as the provided Docker service.
+The private controller discovers reviewed `main` commits after the required CI
+runs succeed and publication is approved. It owns immutable image publication,
+runtime configuration, health gates, receipts, and rollback. This repository
+keeps application CI and build files, without a production caller, duplicate
+release manifest, or production deployment credentials.
+
+## Independent container builds
+
+For local or independent hosting, the app can run as a standard Next.js server or as the provided Docker service.
 Create a production env file from the example, then build the container:
 
 ```bash
