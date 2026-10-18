@@ -41,7 +41,7 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
             </div>
             <a
               className="footer-github"
-              href="https://github.com/mahmoudelfeelig/Anubis"
+              href="https://github.com/elephancy/Anubis"
               aria-label="GitHub repository"
               target="_blank"
               rel="noreferrer"
