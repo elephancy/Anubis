@@ -15,7 +15,7 @@ const config = [
     ],
   },
   {
-    files: ['**/*.{js,jsx,ts,tsx}'],
+    files: ['**/*.{js,cjs,jsx,ts,tsx}'],
     languageOptions: {
       sourceType: 'module',
       globals: {

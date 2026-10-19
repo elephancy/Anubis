@@ -41,6 +41,14 @@ UPLOAD_DIR=.data/uploads
 | `npm run lint` | Run ESLint. |
 | `npm test` | Run Vitest. |
 
+CI audits both development and production dependencies and rejects advisories at
+every severity. Next's ESLint plugin is scoped to the small local glob adapter in
+`tools/next-eslint-glob` because its upstream glob dependency includes an unpatched
+`braces` advisory. The adapter retains the directory lookup used by Next's rules,
+including absolute Windows paths; regression tests also verify internal-link
+violations are still rejected. Remove the override and adapter together when the
+upstream plugin drops the vulnerable dependency.
+
 ## Level Authoring
 
 Each playable level is manually maintained:
