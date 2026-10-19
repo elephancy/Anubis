@@ -1,6 +1,7 @@
 FROM node:24-bookworm-slim AS deps
 WORKDIR /app
 COPY package.json package-lock.json ./
+COPY tools/next-eslint-glob ./tools/next-eslint-glob
 RUN npm ci
 
 FROM node:24-bookworm-slim AS builder

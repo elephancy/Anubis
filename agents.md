@@ -9,10 +9,11 @@ This repository is designed to be agent-friendly. Use this guide whenever an aut
 - `lib/`: Server-side helpers (database, session, storage, etc.).
 
 ## Agent Checklist
-1. **Install deps** - `npm install`.
-2. **Run tests** - `npm test` (Vitest) for library coverage, or `npm run test:watch` during development.
-3. **Start dev server** - `npm run dev` to boot Next.js.
-4. **Build for prod** - `npm run build`.
+1. **Install deps** - `npm ci`.
+2. **Audit deps** - `npm audit --audit-level=low` includes development and production packages.
+3. **Run tests** - `npm test` (Vitest) for library coverage, or `npm run test:watch` during development.
+4. **Start dev server** - `npm run dev` to boot Next.js.
+5. **Build for prod** - `npm run build`.
 
 ## Testing Strategy
 - Unit tests live under `tests/` and use [Vitest](https://vitest.dev/).
