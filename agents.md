@@ -16,6 +16,7 @@ This repository is designed to be agent-friendly. Use this guide whenever an aut
 5. **Build for prod** - `npm run build`.
 
 ## Testing Strategy
+- GitHub Actions runs from pushes and pull requests cancel superseded validation for the same workflow and Git ref.
 - Unit tests live under `tests/` and use [Vitest](https://vitest.dev/).
 - Tests rely on dependency mocking (`vi.mock`) for database and filesystem calls.
 - Snapshot tests are avoided; always assert explicit behaviour or payloads.
