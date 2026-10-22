@@ -38,7 +38,8 @@
     "jsdom": "^29.1.1",
     "typescript": "6.0.3",
     "vitest": "^4.1.9",
-    "fast-glob": "file:tools/next-eslint-glob"
+    "fast-glob": "file:tools/next-eslint-glob",
+    "@vitest/coverage-v8": "4.1.11"
   },
   "optionalDependencies": {
     "@emnapi/core": "1.11.3",
