@@ -5,6 +5,12 @@ import { getSessionUser } from '@/lib/session';
 import { getIndex, getLevel } from '@/lib/levels';
 import { getUserProgressSummary } from '@/lib/progress';
 
+export const metadata = {
+  title: 'Anubis | Analog Horror Puzzle ARG',
+  description: 'Explore damaged signals and solve sequential browser puzzles in Anubis, an analog horror alternate reality game. Create an account to begin.',
+  alternates: { canonical: 'https://anubis.elfeel.me/' },
+};
+
 const featureSignals = [
   {
     title: 'Signal fragments',
