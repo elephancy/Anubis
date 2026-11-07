@@ -2,6 +2,7 @@ export const runtime = 'nodejs';
 export const revalidate = 60;
 
 import Link from 'next/link';
+import type { Metadata } from 'next';
 import { getDb } from '@/lib/db';
 import { getLevel } from '@/lib/levels';
 import type { UserDoc, UserLevelDoc } from '@/lib/types';
@@ -10,14 +11,29 @@ import LeaderboardTable, { LeaderboardRow } from '@/components/LeaderboardTable'
 const PAGE_SIZE = 10;
 
 type PageParams = {
-  searchParams: {
+  searchParams: Promise<{
     pg?: string;
-  };
+  }>;
 };
+
+function pageNumber(params: { pg?: string }) {
+  return Math.max(1, Number.parseInt(params?.pg || '1', 10) || 1);
+}
+
+export async function generateMetadata({ searchParams }: PageParams): Promise<Metadata> {
+  const pg = pageNumber(await searchParams);
+  return {
+    title: pg > 1 ? `Leaderboard, Page ${pg} | Anubis ARG` : 'Leaderboard | Anubis ARG',
+    description: 'See puzzle-clear rankings and recent solves in Anubis, the analog horror puzzle ARG.',
+    alternates: {
+      canonical: `https://anubis.elfeel.me/leaderboard${pg > 1 ? `?pg=${pg}` : ''}`,
+    },
+  };
+}
 
 export default async function Page({ searchParams }: PageParams) {
   const params = await searchParams;
-  const pg = Math.max(1, Number.parseInt(params?.pg || '1', 10) || 1);
+  const pg = pageNumber(params);
   const db = await getDb();
   const userLevels = db.collection<UserLevelDoc>('user_levels');
   const usersCol = db.collection<UserDoc>('users');
