@@ -68,3 +68,6 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Verify standalone public crawl routes
+        run: node tests/check-public-metadata.mjs

@@ -1,5 +1,11 @@
 export const revalidate = 300;
 
+export const metadata = {
+  title: 'Spoiler-Free Puzzle Hints | Anubis ARG',
+  description: 'Tips for inspecting source, console messages, network requests and visual clues in the Anubis analog horror puzzle ARG.',
+  alternates: { canonical: 'https://anubis.elfeel.me/hints' },
+};
+
 export default function Page() {
   return (
     <section className="panel">
